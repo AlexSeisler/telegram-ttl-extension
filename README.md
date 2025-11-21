@@ -1,19 +1,32 @@
 # 🕒 Telegram TTL Sender (Chrome Extension + Backend)
 
+## 🎥 Demo  
+<p align="center">
+  <a href="https://youtu.be/xUtk6-6y2aE" target="_blank">
+    <img src="https://img.youtube.com/vi/xUtk6-6y2aE/hqdefault.jpg" width="600" />
+  </a>
+  <br />
+  <a href="https://youtu.be/xUtk6-6y2aE" target="_blank">
+    <img src="https://img.shields.io/badge/▶️%20Watch%20Demo-YouTube-red?style=for-the-badge&logo=youtube" />
+  </a>
+</p>
+
+---
+
 ## 🚀 Overview
 
-Telegram TTL Sender is a **Chrome Extension + Node.js backend integration** that allows users to send **self-destructing photos (TTL)** directly via Telegram.
-It leverages the **GramJS MTProto client** for Telegram and provides a simple web-based frontend for interaction.
+Telegram TTL Sender is a **Chrome Extension + Node.js backend integration** that allows users to send **self-destructing photos (TTL)** directly via Telegram.  
+It leverages the **GramJS MTProto client** and provides a simple web-based frontend for interaction.
 
 ---
 
 ## 🧩 Features
 
-- Chrome Extension popup to upload an image and set TTL (time-to-live) in seconds  
-- Secure backend built with **Express.js** and **GramJS**  
-- Supports Telegram username or phone number as recipient  
+- Chrome Extension popup to upload an image and set TTL seconds  
+- Secure backend built with **Express.js** + **GramJS**  
+- Supports Telegram username or phone number  
 - Automatically deletes photos after TTL expires on Telegram  
-- Full CORS-enabled integration for local testing  
+- Fully CORS-enabled API for local testing  
 
 ---
 
@@ -57,13 +70,13 @@ API_ID=your_telegram_api_id
 API_HASH=your_telegram_api_hash
 PORT=5050
 ```
-Make sure `session.txt` exists (generated via GramJS login).
+Ensure `session.txt` exists (generated via GramJS login).
 
 ### 4️⃣ Start Backend
 ```bash
 node server.js
 ```
-Backend will start at:  
+Backend available at:  
 ➡️ **http://localhost:5050**
 
 ---
