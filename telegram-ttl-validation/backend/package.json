@@ -1,0 +1,15 @@
+{
+  "name": "telegram-ttl-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "commonjs",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "input": "^1.0.1",
+    "qrcode-terminal": "^0.12.0",
+    "telegram": "^2.21.8"
+  }
+}

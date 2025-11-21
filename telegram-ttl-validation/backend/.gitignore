@@ -1,0 +1,13 @@
+# Node / Environment
+node_modules/
+.env
+session.txt
+package-lock.json
+
+# Logs & temp files
+*.log
+temp_*.jpg
+
+# IDE & system files
+.DS_Store
+.vscode/

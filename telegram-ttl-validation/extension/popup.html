@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegram TTL Sender</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h3>📸 Send Disappearing Photo</h3>
+
+    <label for="peer">Recipient</label>
+    <input type="text" id="peer" placeholder="@username or +15551234567" />
+
+    <label for="ttl">TTL Duration</label>
+    <select id="ttl">
+      <option value="5">5 seconds</option>
+      <option value="10">10 seconds</option>
+      <option value="30">30 seconds</option>
+      <option value="60">1 minute</option>
+    </select>
+
+    <label for="file">Choose Image</label>
+    <input type="file" id="file" accept="image/*" />
+
+    <button id="send">Send</button>
+    <p id="status"></p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
