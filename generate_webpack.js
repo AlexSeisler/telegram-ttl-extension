@@ -3,7 +3,14 @@ const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
 const webpackConfig = require("./webpack.config");
+
+// ✅ Force production-safe build (no eval in output)
 webpackConfig.entry = path.resolve(__dirname, "browser/index.js");
+webpackConfig.mode = "production";
+webpackConfig.devtool = false; // disable all eval-based source maps
+webpackConfig.output = webpackConfig.output || {};
+webpackConfig.output.devtoolModuleFilenameTemplate = undefined; // prevent inline eval mappings
+
 /**
  * Generates a webpack build and put it in browser folder
  */
@@ -71,7 +78,7 @@ addBuffer("tempBrowser");
 renameFiles("tempBrowser", "rename");
 
 const tsconfig = fs.readFileSync("tsconfig.json", "utf8");
-let newTsconfig = tsconfig.replace(/\.\/dist/g, "./browser");
+let newTsconfig = tsconfig.replace(/\\.\\/dist/g, "./browser");
 newTsconfig = newTsconfig.replace(/gramjs/g, "tempBrowser");
 fs.writeFileSync("tsconfig.json", newTsconfig, "utf8");
 const packageJSON = JSON.parse(fs.readFileSync("package.json", "utf8"));
@@ -111,7 +118,7 @@ npmi.on("close", (code) => {
     fs.copyFileSync("gramjs/define.d.ts", "browser/define.d.ts");
     fs.rmSync("tempBrowser", { recursive: true, force: true });
     const tsconfig = fs.readFileSync("tsconfig.json", "utf8");
-    let newTsconfig = tsconfig.replace(/\.\/browser/g, "./dist");
+    let newTsconfig = tsconfig.replace(/\\.\\/browser/g, "./dist");
     newTsconfig = newTsconfig.replace(/tempBrowser/g, "gramjs");
     fs.writeFileSync("tsconfig.json", newTsconfig, "utf8");
     const packageJSON = JSON.parse(fs.readFileSync("package.json", "utf8"));
